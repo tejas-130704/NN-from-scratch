@@ -9,3 +9,14 @@
 1. If matrix A is of size m×n and matrix B is n×p, their product will be a matrix of size m×p
 2. The number of columns of Matrix A must match the number of rows of Matrix B.
 3. Therefore, sometimes we have to do Transpose of matrix
+
+### Why we use Activation Functions?
+Ans: Activation functions are used in neural networks to introduce non-linearity into the model. This non-linearity allows the network to learn and represent complex patterns and relationships in the data, which enables it to solve more complex problems. Without activation functions, a neural network would essentially be just a linear model, limiting its capability.
+
+### What is `nnfs` package?
+The nnfs package is used for educational purposes to simplify and illustrate the implementation of neural networks. It provides a set of functions and classes that help you build and understand neural networks from scratch, focusing on core concepts and algorithms without relying on high-level libraries like TensorFlow or PyTorch. This makes it easier to learn and experiment with the fundamentals of neural networks.
+
+
+
+the "dying neurons" problem, which commonly occurs in neural networks, particularly with activation functions like the ReLU (Rectified Linear Unit). When neurons in the network produce a constant zero output, they are said to have "died." This can happen when weights are updated in such a way that the input to the ReLU activation becomes negative, causing it to output zero (because ReLU outputs zero for negative inputs). Over time, these neurons stop contributing to the learning process.
+To prevent neurons from dying (outputting zeros), we initialize biases to small positive values, use proper weight initialization (like He), or use activations like Leaky ReLU. Techniques like batch normalization also help keep neurons active during training.
