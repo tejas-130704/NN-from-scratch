@@ -20,3 +20,18 @@ The nnfs package is used for educational purposes to simplify and illustrate the
 
 the "dying neurons" problem, which commonly occurs in neural networks, particularly with activation functions like the ReLU (Rectified Linear Unit). When neurons in the network produce a constant zero output, they are said to have "died." This can happen when weights are updated in such a way that the input to the ReLU activation becomes negative, causing it to output zero (because ReLU outputs zero for negative inputs). Over time, these neurons stop contributing to the learning process.
 To prevent neurons from dying (outputting zeros), we initialize biases to small positive values, use proper weight initialization (like He), or use activations like Leaky ReLU. Techniques like batch normalization also help keep neurons active during training.
+
+
+
+
+###### Softmax is used at the output layer for multi-class classification because it converts the raw network output into probabilities that sum to 1, making it suitable for predicting multiple classes.
+
+Difference between Sigmoid and Softmax:
+
+* Sigmoid: Used for binary classification. It outputs a probability for a single class (between 0 and 1).
+* Softmax: Used for multi-class classification. It outputs probabilities for each class, where the sum of probabilities is 1.
+
+
+
+
+##### If we do not use a loss function in a neural network, the model will have no way to measure the error or difference between its predictions and the actual target values. Without this feedback, the network cannot learn or improve during training, as there would be no basis for adjusting the weights through backpropagation. The loss function is crucial for guiding the learning process.

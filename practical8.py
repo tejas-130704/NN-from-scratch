@@ -47,4 +47,4 @@ layer1.forward(X)
 activation1.forward(layer1.output)
 print(activation1.output)
 
-#Whenever we see that the neurons are getting dead (bcz of zeros) we start initallizing Biases
+#Whenever we see that the neurons are getting dead (bcz of zeros) we start initallizing Biases 
