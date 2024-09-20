@@ -29,6 +29,16 @@ class Activation_Softmax:
         probabilities = exp_values / np.sum(exp_values, axis=1 , keepdims=True)
         self.output = probabilities
 
+class Loss:
+    def calculate(self,output,y):
+        sample_loses=self.forward(output,y)
+        data_loss=np.mean(sample_loses)
+        return data_loss
+
+class Loss_CategoricalCrossEntropy(Loss):
+    def forward(self, y_pred, y_true):
+        sample=len(y_pred)
+        y_pred_clipped = np.clip(y_pred, )
 
 X,y=spiral_data(100,3)
 

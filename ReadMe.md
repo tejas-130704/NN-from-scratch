@@ -35,3 +35,23 @@ Difference between Sigmoid and Softmax:
 
 
 ##### If we do not use a loss function in a neural network, the model will have no way to measure the error or difference between its predictions and the actual target values. Without this feedback, the network cannot learn or improve during training, as there would be no basis for adjusting the weights through backpropagation. The loss function is crucial for guiding the learning process.
+
+
+
+
+#### Why we use different Loss Functions:
+* Real value - predicted value (e.g., Mean Squared Error) is used in <b>regression<b> tasks to minimize the difference between predicted and actual continuous values.
+1. Real value - predicted value (for regression problems)
+This type of loss function is typically used in regression tasks where the goal is to predict a continuous value. A common form of this loss function is the Mean Squared Error (MSE), where the difference between the predicted value and the true (real) value is squared and averaged across all examples. The formula is:
+MSE=(Sum(y-y^)**2)/n
+
+
+* Logarithmic loss (Cross-Entropy) with softmax is used in <b>classification<b> tasks to match predicted probabilities with true class labels, penalizing incorrect predictions exponentially.
+2. Logarithmic loss with softmax (for classification problems)
+This loss function is used in classification tasks, where the output is categorical, and the goal is to assign the correct class label. The loss function you referred to is the Cross-Entropy Loss, often used with softmax activation in the output layer. The formula is:
+
+Cross-Entropy Loss = - Sum(y* log(y^))
+
+* In binary classification, the commonly used loss function is Binary Cross-Entropy (Log Loss). The formula is:
+
+ BCE = - [ylog(y^)+(1-y)log(1-y^)]
