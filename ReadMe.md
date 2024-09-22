@@ -32,7 +32,9 @@ Difference between Sigmoid and Softmax:
 * Softmax: Used for multi-class classification. It outputs probabilities for each class, where the sum of probabilities is 1.
 
 
-
+#### Key Differences(ReLU v/s Softmax):
+ReLU: Non-linear, used in hidden layers, outputs non-negative real values.
+Softmax: Normalizes outputs into probabilities, used in the output layer for classification problems.
 
 ##### If we do not use a loss function in a neural network, the model will have no way to measure the error or difference between its predictions and the actual target values. Without this feedback, the network cannot learn or improve during training, as there would be no basis for adjusting the weights through backpropagation. The loss function is crucial for guiding the learning process.
 
