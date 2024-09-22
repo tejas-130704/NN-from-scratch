@@ -17,3 +17,7 @@ print(loss)
 
 print(-math.log(0.7)) # 0.35 Loss in less comparitively 
 print(-math.log(0.5)) # 0.69 Loss increased bcz it it too far from 1
+
+
+# log of log if there is 0 then the output will tense to infinity
+# therefore we will usr clip()

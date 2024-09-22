@@ -55,3 +55,19 @@ Cross-Entropy Loss = - Sum(y* log(y^))
 * In binary classification, the commonly used loss function is Binary Cross-Entropy (Log Loss). The formula is:
 
  BCE = - [ylog(y^)+(1-y)log(1-y^)]
+
+
+<hr>
+#####What is clip function?
+The clip() function is commonly used in various programming languages and libraries to restrict a value within a given range. If the value is less than the lower bound, it is set to the lower bound; if the value is greater than the upper bound, it is set to the upper bound. The value remains unchanged if it falls within the specified range.
+
+Examples in Python:
+NumPy clip(): In NumPy, the clip() function is used to limit elements in an array.
+
+'''
+import numpy as np
+
+arr = np.array([1, 2, 3, 4, 5])
+clipped_arr = np.clip(arr, 2, 4)
+print(clipped_arr)  # Output: [2 2 3 4 4]
+'''

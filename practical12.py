@@ -38,7 +38,18 @@ class Loss:
 class Loss_CategoricalCrossEntropy(Loss):
     def forward(self, y_pred, y_true):
         sample=len(y_pred)
-        y_pred_clipped = np.clip(y_pred, )
+        y_pred_clipped = np.clip(y_pred,1e-7, 1-1e-7 )
+        if len(y_true.shape) == 1: #1d -> value passed [0,1,1]
+            correct_confidence = y_pred_clipped[range(sample), y_true] #this is for to get required confidence interval o/p ->[0.7,0.5,0.9] 
+        
+        elif len(y_true.shape) == 2: #2d -> One Hot Encoded form [[1,0,0],[0,1,0],[0,0,1]]
+            correct_confidence = np.sum(y_pred_clipped*y_true,axis=1 ) # this also give similar o/p as pervious one i.e. [0.7,0.5,0.9] 
+        
+        negative_log_likelihoods = -np.log(correct_confidence)
+        return negative_log_likelihoods
+
+# 1e-7 -> 1 * 10^(-7) or 0.0000001
+
 
 X,y=spiral_data(100,3)
 
@@ -60,6 +71,11 @@ activation1.forward(dense1.output)
 dense2.forward(activation1.output)
 activation2.forward(dense2.output)
 
-# input ->  layer1 -> activation1 -> layer2 -> activation2 ->
+# input ->  layer1 -> activation1 -> layer2 -> activation2 -> Loss Function
 
 print(activation2.output[:5])
+
+loss_function = Loss_CategoricalCrossEntropy()
+loss= loss_function.calculate(activation2.output,y)
+
+print("Loss:",loss)
